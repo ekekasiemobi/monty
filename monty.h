@@ -50,5 +50,5 @@ void malloc_error(void);
 extern int line;
 void print_int(stack_t **stack, unsigned int line_count);
 void print_all(stack_t **stack, unsigned int line_count);
-void _nop(stack_t **stack, unsigned int line_cont)
+void nop(stack_t **stack, unsigned int line_cont);
 #endif

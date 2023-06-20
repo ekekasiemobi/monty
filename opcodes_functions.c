@@ -1,3 +1,4 @@
+#include "monty.h"
 /**
  * print_all - prints all the values on stack from top to the last
  *
@@ -25,15 +26,13 @@ void print_all(stack_t **stack, unsigned int line_count)
  * @stack: pointer to stacck to print
  * @line_count: number of lines counted
  */
-
 void print_int(stack_t **stack, unsigned int line_count)
 {
-	if (!*stack)
+	if (*stack == NULL)
 	{
-		print_error("Error: can't pint, stack empty\n", line_count);
+		fprintf(stderr, "L %d: can't pint, stack empty\n", line_count);
 		exit(EXIT_FAILURE);
 	}
-
 	printf("%d\n", (*stack)->n);
 }
 
@@ -44,7 +43,7 @@ void print_int(stack_t **stack, unsigned int line_count)
  * @stack: pointer to stacck to print
  * @line_count: number of lines counted
  */
-void _nop(stack_t **stack, unsigned int line_count)
+void nop(stack_t **stack, unsigned int line_count)
 {
 	(void)stack;
 	(void)line_count;
