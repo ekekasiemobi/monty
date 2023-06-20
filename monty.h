@@ -10,6 +10,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -43,10 +44,11 @@ typedef struct instruction_s
 void print_error(char *message, char *file);
 void add_stack_beg(stack_t **stack, unsigned int);
 void add_stack_end(stack_t **stack, unsigned int);
-void print_int(stack_t **stack, unsigned int);
-void print_all(stack_t **stack, unsigned int);
 void tokenizer(char *cmd, char ***arr, ssize_t read);
 void (*get_dispatch_func(char *str))(stack_t**, unsigned int);
 void malloc_error(void);
 extern int line;
+void print_int(stack_t **stack, unsigned int line_count);
+void print_all(stack_t **stack, unsigned int line_count);
+void _nop(stack_t **stack, unsigned int line_cont)
 #endif
