@@ -7,17 +7,12 @@
  */
 int main(int argc, char *argv[])
 {
+	stact_t *head = NULL;
 	int fd;
-	char *file = argv[1], *delimeter = " $\t\n", buffer[BUF_SIZE], **arr;
+	char *file = argv[1], buffer[BUF_SIZE], **arr, delim = " $\t\n";
 	ssize_t numRead;
-	void (*table[])(stack_t**, unsigned int) = {
-		{"push", add_stack_beg},
-		{"pop", delete_stack},
-		{"pint", print_int},
-		{"pall", print_all},
-		{NULL, NULL}
-	};
-	
+	void (*opcmd)(stack_t**, unsigned int);
+
 	if (argc != 2)
 		print_error("Usage: monty file");
 	fd = open(file, O_RDONLY);
@@ -26,7 +21,20 @@ int main(int argc, char *argv[])
 	numRead = read(fd, buffer, BUF_SIZE);
 	if (numRead == -1)
 		print_error("Error: Can't read", file);
-	tokenizer(&arr, buffer, numRead);
+	token = strtok(buffer, delim);
+	while (token != NULL)
+	{
+		tokenizer(token, &arr, numRead);
+		token = strtok(NULL, delim);
+		opcmd = get_dispatch_func(arr[0])
+		if (opcmd == NULL)
+		{
+			dprintf(stderr, "L %d: unknown instruction %s", line, opcode);
+			exit(EXIT_FAILURE);
+		}
+		opcmd(&stack, arr[1]);
+		line++;
+	}
 	if (close(fd) == -1)
 		print_error("Error: Can't close file", file);
 	return (0);
