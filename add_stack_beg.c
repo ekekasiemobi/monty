@@ -1,4 +1,4 @@
-#include "lists.h"
+#include "monty.h"
 /**
  * add_stack_beg - add a new node at the beginning of a list
  * @stack: a struct node pointer to the list
@@ -11,7 +11,7 @@ void add_stack_beg(stack_t **stack, unsigned int n)
 
 	new_node = malloc(sizeof(stack_t));
 	if (!new_node)
-		return (NULL);
+		return;
 	new_node->n = n;
 	if (*stack == NULL)
 	{

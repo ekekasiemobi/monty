@@ -7,14 +7,16 @@
  */
 int main(int argc, char *argv[])
 {
-	stact_t *head = NULL;
+	line = 1;
+	stack_t *head = NULL;
 	int fd;
-	char *file = argv[1], buffer[BUF_SIZE], **arr, delim = " $\t\n";
+	char *file = argv[1], buffer[BUF_SIZE], **arr, *token;
+	char *delim = " $\t\n";
 	ssize_t numRead;
 	void (*opcmd)(stack_t**, unsigned int);
 
 	if (argc != 2)
-		print_error("Usage: monty file");
+		print_error("Usage: monty file", NULL);
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 		print_error("Error: Can't open", file);
@@ -26,13 +28,13 @@ int main(int argc, char *argv[])
 	{
 		tokenizer(token, &arr, numRead);
 		token = strtok(NULL, delim);
-		opcmd = get_dispatch_func(arr[0])
+		opcmd = get_dispatch_func(arr[0]);
 		if (opcmd == NULL)
 		{
-			dprintf(stderr, "L %d: unknown instruction %s", line, opcode);
+			dprintf(2, "L %d: unknown instruction %s", line, arr[0]);
 			exit(EXIT_FAILURE);
 		}
-		opcmd(&stack, arr[1]);
+		opcmd(&head, line);
 		line++;
 	}
 	if (close(fd) == -1)

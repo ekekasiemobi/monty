@@ -4,22 +4,19 @@
  * @str: opcommand
  * Return: found command index
  */
-int (*get_dispatch_func(char *str))(stack_t**, unsigned int)
+void (*get_dispatch_func(char *str))(stack_t**, unsigned int)
 {
 	int i = 0;
 	instruction_t func[] = {
 		{"push", add_stack_beg},
-		{"pop", delete_stack},
-		{"pint", print_int},
-		{"pall", print_all},
 		{NULL, NULL}
 	};
 
-	while (i < 5)
+	while (func[i].opcode != NULL)
 	{
-		if (func[i].opcode[0] == str[0])
+		if (strcmp(func[i].opcode, str) == 0)
 			return (func[i].f);
 		i++;
 	}
-	return (NULL);
+	return NULL;
 }
