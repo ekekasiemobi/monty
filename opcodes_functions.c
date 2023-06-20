@@ -21,6 +21,7 @@ void print_all(stack_t **stack, unsigned int line_count)
 
 /**
  * print_int - prints top item on the stack
+ *
  * @stack: pointer to stacck to print
  * @line_count: number of lines counted
  */
@@ -36,3 +37,15 @@ void print_int(stack_t **stack, unsigned int line_count)
 	printf("%d\n", (*stack)->n);
 }
 
+
+/**
+ * _nop - function does nothing
+ *
+ * @stack: pointer to stacck to print
+ * @line_count: number of lines counted
+ */
+void _nop(stack_t **stack, unsigned int line_count)
+{
+	(void)stack;
+	(void)line_count;
+}
