@@ -7,14 +7,14 @@
  */
 int main(int argc, char *argv[])
 {
-	line = 1;
-	stack_t *head = NULL;
-	int fd;
-	char *file = argv[1], buffer[BUF_SIZE], **arr, *token;
-	char *delim = " $\t\n";
+	stack_t *head;
+	int fd, line = 1;
+	char *file = argv[1], buffer[BUF_SIZE], **arr,
+	     *token, *delim = " $\t\n";
 	ssize_t numRead;
 	void (*opcmd)(stack_t**, unsigned int);
 
+	head = NULL;
 	if (argc != 2)
 		print_error("Usage: monty file", NULL);
 	fd = open(file, O_RDONLY);
@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 		opcmd = get_dispatch_func(arr[0]);
 		if (opcmd == NULL)
 		{
-			dprintf(2, "L %d: unknown instruction %s", line, arr[0]);
+			fprintf(stderr, "L %d: unknown instruction %s", line, arr[0]);
 			exit(EXIT_FAILURE);
 		}
 		opcmd(&head, line);

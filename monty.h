@@ -47,5 +47,6 @@ void print_int(stack_t **stack, unsigned int);
 void print_all(stack_t **stack, unsigned int);
 void tokenizer(char *cmd, char ***arr, ssize_t read);
 void (*get_dispatch_func(char *str))(stack_t**, unsigned int);
-static int line;
+void malloc_error(void);
+extern int line;
 #endif

@@ -11,29 +11,33 @@ void tokenizer(char *cmd, char ***arr, ssize_t read)
 	int count = 0, i;
 
 	copy_read = malloc(sizeof(char) * read);
+	if (!copy_read)
+		malloc_error();
 	strcpy(copy_read, cmd);
 	token = strtok(NULL, cmd);
 	while (token != NULL)
 	{
-		token = strtok(NULL, delim);
 		count++;
+		token = strtok(NULL, delim);
 	}
 	*arr = malloc(sizeof(char *) * (count + 1));
 	if (!*arr)
-		print_error("Error: malloc failed", NULL);
+		malloc_error();
 	token = strtok(cmd, delim);
 	for (count = 0; token != NULL; count++)
 	{
-		(*arr)[count] = malloc(sizeof(char) * strlen(token));
+		(*arr)[count] = malloc(sizeof(char) * (strlen(token) + 1));
 		if (!(*arr)[count])
 		{
 			for (i = 0; i < count; i++)
 				free((*arr)[i]);
 			free(*arr);
 			free(copy_read);
+			malloc_error();
 		}
 		strcpy((*arr)[count], token);
 		token = strtok(NULL, delim);
 	}
 	(*arr)[count] = NULL;
+	free(copy_read);
 }

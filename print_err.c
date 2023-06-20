@@ -8,6 +8,15 @@ void print_error(char *message, char *file)
 {
 	if (file == NULL)
 		file = "";
-	dprintf(2, "%s %s\n", message, file);
+	fprintf(stderr, "%s %s\n", message, file);
+	exit(EXIT_FAILURE);
+}
+
+/**
+ * malloc_error - print malloc error
+ */
+void malloc_error(void)
+{
+	fprintf(stderr, "Error: malloc failed");
 	exit(EXIT_FAILURE);
 }

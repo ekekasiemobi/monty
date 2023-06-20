@@ -11,7 +11,7 @@ void add_stack_beg(stack_t **stack, unsigned int n)
 
 	new_node = malloc(sizeof(stack_t));
 	if (!new_node)
-		return;
+		malloc_error();
 	new_node->n = n;
 	if (*stack == NULL)
 	{
