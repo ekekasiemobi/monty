@@ -38,6 +38,7 @@ typedef struct instruction_s
 void print_error(char *message, int status);
 void *add_stack_beg(stack_t **stack, unsigned int);
 void *add_stack_end(stack_t **stack, unsigned int);
-void *print_int(stack_t **stack, unsigned int);
-void *print_all(stack_t **stack, unsigned int);
+void *print_int(stack_t **stack, unsigned int line_count);
+void *print_all(stack_t **stack, unsigned int line_count);
+void _nop(stack_t **stack, unsigned int line_cont)
 #endif
