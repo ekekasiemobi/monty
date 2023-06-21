@@ -52,7 +52,6 @@ typedef struct mont_param
 	unsigned int line_number;
 	char **arr;
 	int n;
-	instruction_t *instruct;
 } param;
 void print_error(char *message, char *file);
 void add_stack_beg(stack_t **stack, unsigned int);
@@ -67,4 +66,5 @@ void nop(stack_t **stack, unsigned int line_number);
 void print_add(stack_t **stack, unsigned int line_number);
 void initialize(void);
 void print_line_number(unsigned int line);
+void free_stack(stack_t **stack);
 #endif

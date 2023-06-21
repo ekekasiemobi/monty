@@ -7,6 +7,7 @@
  */
 int main(int argc, char *argv[])
 {
+	int i;
 	stack_t *head;
 	FILE *file;
 	char *file_name = argv[1], buffer[BUF_SIZE];
@@ -35,6 +36,10 @@ int main(int argc, char *argv[])
 		opcmd(&head, mont->line_number);
 		mont->line_number += 1;
 	}
+	free_stack(&head);
+	for (i = 0; mont->arr[i] != NULL; i++)
+		free(mont->arr[i]);
+	free(mont->arr);
 	fclose(file);
 	return (0);
 }

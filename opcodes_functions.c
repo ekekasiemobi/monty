@@ -45,7 +45,7 @@ void print_int(stack_t **stack, unsigned int line_number)
 
 void print_add(stack_t **stack, unsigned int line_number)
 {
-	stack_t *new;
+	
 	if (!*stack || !(*stack)->next)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n",
@@ -53,11 +53,8 @@ void print_add(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	new = *stack;
-
 	(*stack)->next->n += (*stack)->n;
 	*stack = (*stack)->next;
-	free(new);
 }
 
 

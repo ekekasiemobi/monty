@@ -10,7 +10,7 @@ void tokenizer(char *cmd, char ***arr, ssize_t read)
 	char *copy_read, *delim = " $\t\n", *token;
 	int count = 0, i;
 
-	copy_read = malloc(sizeof(char) * read);
+	copy_read = malloc(sizeof(char) * read + 3);
 	if (!copy_read)
 		malloc_error();
 	strcpy(copy_read, cmd);
@@ -20,7 +20,7 @@ void tokenizer(char *cmd, char ***arr, ssize_t read)
 		count++;
 		token = strtok(NULL, delim);
 	}
-	*arr = malloc(sizeof(char *) * (count + 1));
+	*arr = malloc(sizeof(char *) * (count + 2));
 	if (!*arr)
 		malloc_error();
 	token = strtok(cmd, delim);
@@ -39,5 +39,7 @@ void tokenizer(char *cmd, char ***arr, ssize_t read)
 		token = strtok(NULL, delim);
 	}
 	(*arr)[count] = NULL;
+	(*arr)[++count] = NULL;
+	/*free(token);*/
 	free(copy_read);
 }
