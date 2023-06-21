@@ -8,10 +8,10 @@ void (*get_dispatch_func(char *str))(stack_t**, unsigned int)
 {
 	int i = 0;
 	instruction_t func[] = {
+		{"add", print_add},
 		{"push", add_stack_beg},
 		{"pall", print_all},
 		{"pint", print_int},
-		{"add", print_add},
 		{"nop", nop},
 		{NULL, NULL}
 	};

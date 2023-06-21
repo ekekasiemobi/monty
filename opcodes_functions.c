@@ -42,6 +42,7 @@ void print_int(stack_t **stack, unsigned int line_number)
  * @stack: pointer to stack to print
  * @line_number: number of lines in the stack
  */
+
 void print_add(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new;
@@ -54,15 +55,10 @@ void print_add(stack_t **stack, unsigned int line_number)
 
 	new = *stack;
 
-	while (new->next != NULL)
-	{
-		new->next->n += new->n;
-		new = new->next;
-	}
-
+	(*stack)->next->n += (*stack)->n;
+	*stack = (*stack)->next;
 	free(new);
 }
-
 
 
 /**
