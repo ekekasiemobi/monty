@@ -44,6 +44,7 @@ void print_int(stack_t **stack, unsigned int line_count)
  */
 void print_add(stack_t **stack, unsigned int line_count)
 {
+	stack_t *new;
 	if (!*stack || !(*stack)->next)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n",
