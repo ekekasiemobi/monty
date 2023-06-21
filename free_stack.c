@@ -1,7 +1,7 @@
 #include "monty.h"
 /**
  * free_stack - free stack
- * @head: a struct node pointer
+ * @stack: a struct node pointer
  */
 void free_stack(stack_t **stack)
 {

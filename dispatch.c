@@ -23,5 +23,5 @@ void (*get_dispatch_func(char *str))(stack_t**, unsigned int)
 			return (func[i].f);
 		i++;
 	}
-	return NULL;
+	return (NULL);
 }
