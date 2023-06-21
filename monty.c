@@ -34,7 +34,9 @@ int main(int argc, char *argv[])
 			print_line_number(mont->line_number);
 		opcmd(&head, mont->line_number);
 		mont->line_number += 1;
+		free_array();
 	}
+	free_stack(&head);
 	fclose(file);
 	return (0);
 }

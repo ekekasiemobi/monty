@@ -30,5 +30,9 @@ void add_stack_beg(stack_t **stack, unsigned int line_number)
 		*stack = new_node;
 	}
 	else
-		print_line_number(line_number);
+	{
+		fprintf(stderr, "L %d: usage: push integer",line_number);
+		free_stack(stack);
+		exit(EXIT_FAILURE);
+	}
 }

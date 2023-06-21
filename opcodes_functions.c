@@ -31,6 +31,7 @@ void print_int(stack_t **stack, unsigned int line_count)
 	if (*stack == NULL)
 	{
 		fprintf(stderr, "L %d: can't pint, stack empty\n", line_count);
+		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", (*stack)->n);
