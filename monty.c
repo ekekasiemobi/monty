@@ -28,6 +28,11 @@ int main(int argc, char *argv[])
 			buffer[len - 1] = '\0';
 			len--;
 		}
+		if (len == 0)
+		{
+			mont->line_number += 1;
+			continue;
+		}
 		tokenizer(buffer, len);
 		opcmd = get_dispatch_func(mont->arr[0]);
 		if (opcmd == NULL || mont->n > 2)

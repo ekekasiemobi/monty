@@ -6,17 +6,24 @@
  */
 void pop(stack_t **stack, unsigned int line)
 {
+	
 	stack_t *next_val;
 
 	if (stack == NULL || *stack == NULL)
 	{
-		fprintf(stderr, "L %d: can't pop an empty stack\n", line);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line);
 		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
 	next_val = (*stack)->next;
-	if (next_val->prev != NULL)
-		next_val->prev = NULL;
 	free(*stack);
 	*stack = next_val;
+	if (*stack)
+		(*stack)->prev = NULL;
+	
+	/*next_val = *stack;
+	*stack = next_val->next;
+	if (next_val->next != NULL)
+		next_val->next->prev = NULL;
+	free(next_val);*/
 }

@@ -31,7 +31,7 @@ void print_int(stack_t **stack, unsigned int line_number)
 {
 	if (*stack == NULL)
 	{
-		fprintf(stderr, "L %d: can't pint, stack empty\n", line_number);
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", (*stack)->n);
@@ -46,15 +46,19 @@ void print_int(stack_t **stack, unsigned int line_number)
 
 void print_add(stack_t **stack, unsigned int line_number)
 {
+	stack_t *temp;
+
 	if (!*stack || !(*stack)->next)
 	{
-		fprintf(stderr, "L %d: can't add, stack too short\n",
+		fprintf(stderr, "L%d: can't add, stack too short\n",
 			line_number);
 		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
+	temp = (*stack)->next;
 	(*stack)->next->n += (*stack)->n;
-	*stack = (*stack)->next;
+	free(*stack);
+	*stack = temp;
 }
 
 
