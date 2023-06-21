@@ -10,4 +10,5 @@ void initialize(void)
 		malloc_error();
 	mont->n = 0;
 	mont->line_number = 1;
+	mont->arr = NULL;
 }

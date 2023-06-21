@@ -38,6 +38,7 @@ int main(int argc, char *argv[])
 		free_array();
 	}
 	free_stack(&head);
+	free(mont);
 	fclose(file);
 	return (0);
 }
