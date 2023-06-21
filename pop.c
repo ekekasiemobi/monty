@@ -1,7 +1,8 @@
 #include "monty.h"
 /**
  * pop - a function that delete on a stack
- * @head: a struct node pointer
+ * @stack: a struct node pointer
+ * @line: line number
  */
 void pop(stack_t **stack, unsigned int line)
 {
