@@ -41,14 +41,28 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct mont_param - line number and array of words
+ * @line_number: opcode line argument
+ * @arr: array of words
+ * @n: integer to pass to instruction
+ */
+typedef struct mont_param
+{
+	unsigned int line_number;
+	char **arr;
+	int n;
+	instruction_t *instruct;
+} param;
 void print_error(char *message, char *file);
 void add_stack_beg(stack_t **stack, unsigned int);
 void add_stack_end(stack_t **stack, unsigned int);
 void tokenizer(char *cmd, char ***arr, ssize_t read);
 void (*get_dispatch_func(char *str))(stack_t**, unsigned int);
 void malloc_error(void);
-extern int line;
+extern param *mont;
 void print_int(stack_t **stack, unsigned int line_count);
 void print_all(stack_t **stack, unsigned int line_count);
 void nop(stack_t **stack, unsigned int line_cont);
+void initialize(void);
 #endif
