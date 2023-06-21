@@ -6,7 +6,7 @@
  */
 void pop(stack_t **stack, unsigned int line)
 {
-	
+
 	stack_t *next_val;
 
 	if (stack == NULL || *stack == NULL)
@@ -20,10 +20,4 @@ void pop(stack_t **stack, unsigned int line)
 	*stack = next_val;
 	if (*stack)
 		(*stack)->prev = NULL;
-	
-	/*next_val = *stack;
-	*stack = next_val->next;
-	if (next_val->next != NULL)
-		next_val->next->prev = NULL;
-	free(next_val);*/
 }
