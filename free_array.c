@@ -9,4 +9,5 @@ void free_array(void)
 	for (; mont->arr[i] != NULL; i++)
 		free(mont->arr[i]);
 	free(mont->arr);
+	mont->arr = NULL;
 }

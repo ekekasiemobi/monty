@@ -28,11 +28,12 @@ int main(int argc, char *argv[])
 			buffer[len - 1] = '\0';
 			len--;
 		}
-		tokenizer(buffer, &mont->arr, len);
+		tokenizer(buffer, len);
 		opcmd = get_dispatch_func(mont->arr[0]);
-		if (opcmd == NULL)
+		if (opcmd == NULL || mont->n > 2)
 			print_line_number(mont->line_number);
 		opcmd(&head, mont->line_number);
+		mont->n = 0;
 		mont->line_number += 1;
 		free_array();
 	}

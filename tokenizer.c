@@ -5,40 +5,45 @@
  * @read: size of token
  * @cmd: command
  */
-void tokenizer(char *cmd, char ***arr, ssize_t read)
+void tokenizer(char *cmd, ssize_t read)
 {
-	char *copy_read, *delim = " $\t\n", *token;
+	char *copy_cmd, *delim = " $\t\n", *token;
 	int count = 0, i;
 
-	copy_read = malloc(sizeof(char) * (read + 3));
-	if (!copy_read)
+	copy_cmd = malloc(sizeof(char) * read + 1);
+	if (!copy_cmd)
 		malloc_error();
-	strcpy(copy_read, cmd);
-	token = strtok(copy_read, delim);
+	strcpy(copy_cmd, cmd);
+	token = strtok(copy_cmd, delim);
 	while (token != NULL)
 	{
 		count++;
 		token = strtok(NULL, delim);
 	}
-	*arr = malloc(sizeof(char *) * (count + 2));
-	if (!*arr)
+	mont->arr = malloc(sizeof(char *) * (count + 2));
+	if (!mont->arr)
+	{
+		free(copy_cmd);
 		malloc_error();
+	}
 	token = strtok(cmd, delim);
 	for (count = 0; token != NULL; count++)
 	{
-		(*arr)[count] = malloc(sizeof(char) * (strlen(token) + 1));
-		if (!(*arr)[count])
+		mont->arr[count] = malloc(sizeof(char) * (strlen(token) + 1));
+		if (!mont->arr[count])
 		{
 			for (i = 0; i < count; i++)
-				free((*arr)[i]);
-			free(*arr);
-			free(copy_read);
+				free(mont->arr[i]);
+			free(mont->arr);
+			mont->arr = NULL;
+			free(copy_cmd);
 			malloc_error();
 		}
-		strcpy((*arr)[count], token);
+		strcpy(mont->arr[count], token);
+		mont->n += 1;
 		token = strtok(NULL, delim);
 	}
-	(*arr)[count] = NULL;
-	(*arr)[++count] = NULL;
-	free(copy_read);
+	mont->arr[count] = NULL;
+	mont->arr[++count] = NULL;
+	free(copy_cmd);
 }

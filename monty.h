@@ -57,7 +57,7 @@ typedef struct mont_param
 void print_error(char *message, char *file);
 void add_stack_beg(stack_t **stack, unsigned int);
 void add_stack_end(stack_t **stack, unsigned int);
-void tokenizer(char *cmd, char ***arr, ssize_t read);
+void tokenizer(char *cmd, ssize_t read);
 void (*get_dispatch_func(char *str))(stack_t**, unsigned int);
 void malloc_error(void);
 extern param *mont;
