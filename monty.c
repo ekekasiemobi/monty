@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 	head = NULL;
 	initialize();
 	if (argc != 2)
-		print_error("Usage: monty file", NULL);
+		print_error("USAGE: monty", file_name);
 	file = fopen(file_name, "r");
 	if (!file)
 		print_error("Error: Can't open", file_name);

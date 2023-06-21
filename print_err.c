@@ -17,7 +17,7 @@ void print_error(char *message, char *file)
  */
 void malloc_error(void)
 {
-	fprintf(stderr, "Error: malloc failed");
+	fprintf(stderr, "Error: malloc failed\n");
 	exit(EXIT_FAILURE);
 }
 
