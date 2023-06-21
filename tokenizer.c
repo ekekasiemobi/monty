@@ -1,7 +1,6 @@
 #include "monty.h"
 /**
  * tokenizer - tokenizer the command in file
- * @arr: argument vector
  * @read: size of token
  * @cmd: command
  */
