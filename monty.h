@@ -52,7 +52,7 @@ typedef struct mont_param
 	unsigned int line_number;
 	char **arr;
 	int n;
-	instruction_t *instruct;
+	FILE *file;
 } param;
 void print_error(char *message, char *file);
 void add_stack_beg(stack_t **stack, unsigned int);
@@ -70,4 +70,5 @@ void initialize(void);
 void print_line_number(unsigned int line);
 void free_stack(stack_t **stack);
 void free_array(void);
+int is_digit(char *c);
 #endif

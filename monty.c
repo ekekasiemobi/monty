@@ -8,7 +8,6 @@
 int main(int argc, char *argv[])
 {
 	stack_t *head;
-	FILE *file;
 	char *file_name = argv[1], buffer[BUF_SIZE];
 	size_t len = 0;
 	void (*opcmd)(stack_t**, unsigned int);
@@ -17,10 +16,10 @@ int main(int argc, char *argv[])
 	initialize();
 	if (argc != 2)
 		print_error("USAGE: monty", file_name);
-	file = fopen(file_name, "r");
-	if (!file)
+	mont->file = fopen(file_name, "r");
+	if (!mont->file)
 		print_error("Error: Can't open", file_name);
-	while (fgets(buffer, BUF_SIZE, file) != NULL)
+	while (fgets(buffer, BUF_SIZE, mont->file) != NULL)
 	{
 		len = strlen(buffer);
 		if (buffer[len - 1] == '\n')
@@ -43,7 +42,7 @@ int main(int argc, char *argv[])
 		free_array();
 	}
 	free_stack(&head);
+	fclose(mont->file);
 	free(mont);
-	fclose(file);
 	return (0);
 }
