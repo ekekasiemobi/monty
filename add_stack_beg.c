@@ -39,6 +39,11 @@ void add_stack_beg(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 }
+/**
+ * is_digit - checks if the command is a digit
+ * @c: a single pointer
+ * Return: return an integer
+ */
 
 int is_digit(char *c)
 {
@@ -51,4 +56,4 @@ int is_digit(char *c)
 		i++;
 	}
 	return (1);
-}		
+}

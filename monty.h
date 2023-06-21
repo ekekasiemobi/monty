@@ -46,6 +46,7 @@ typedef struct instruction_s
  * @line_number: opcode line argument
  * @arr: array of words
  * @n: integer to pass to instruction
+ * @file: the file read
  */
 typedef struct mont_param
 {
