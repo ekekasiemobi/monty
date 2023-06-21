@@ -20,3 +20,13 @@ void malloc_error(void)
 	fprintf(stderr, "Error: malloc failed");
 	exit(EXIT_FAILURE);
 }
+
+/**
+ * print_line_number - print unknown error:
+ * @line: line number
+ */
+void print_line_number(unsigned int line)
+{
+	fprintf(stderr, "L %d: unknown instruction %s", line, mont->arr[0]);
+	exit(EXIT_FAILURE);
+}

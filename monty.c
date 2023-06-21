@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 {
 	stack_t *head;
 	FILE *file;
-	char *file_name = argv[1], buffer[BUF_SIZE], *token, *delim = " $\t\n";
+	char *file_name = argv[1], buffer[BUF_SIZE];
 	size_t len = 0;
 	void (*opcmd)(stack_t**, unsigned int);
 
@@ -28,19 +28,12 @@ int main(int argc, char *argv[])
 			buffer[len - 1] = '\0';
 			len--;
 		}
-		token = strtok(buffer, delim);
-		while (token != NULL)
-		{
-			tokenizer(token, &mont->arr, len);
-			token = strtok(NULL, delim);
-			opcmd = get_dispatch_func(mont->arr[0]);
-			if (opcmd == NULL)
-			{
-				fprintf(stderr, "L %d: unknown instruction %s", mont->line_number, mont->arr[0]);
-				exit(EXIT_FAILURE);
-			}
-			opcmd(&head, mont->line_number);
-		}
+		tokenizer(buffer, &mont->arr, len);
+		opcmd = get_dispatch_func(mont->arr[0]);
+		if (opcmd == NULL)
+			print_line_number(mont->line_number);
+		opcmd(&head, mont->line_number);
+		mont->line_number += 1;
 	}
 	fclose(file);
 	return (0);

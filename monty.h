@@ -65,4 +65,5 @@ void print_int(stack_t **stack, unsigned int line_count);
 void print_all(stack_t **stack, unsigned int line_count);
 void nop(stack_t **stack, unsigned int line_cont);
 void initialize(void);
+void print_line_number(unsigned int line);
 #endif

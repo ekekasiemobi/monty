@@ -14,7 +14,7 @@ void tokenizer(char *cmd, char ***arr, ssize_t read)
 	if (!copy_read)
 		malloc_error();
 	strcpy(copy_read, cmd);
-	token = strtok(NULL, cmd);
+	token = strtok(copy_read, delim);
 	while (token != NULL)
 	{
 		count++;

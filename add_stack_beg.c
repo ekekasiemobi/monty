@@ -2,26 +2,33 @@
 /**
  * add_stack_beg - add a new node at the beginning of a list
  * @stack: a struct node pointer to the list
- * @n: data to enter the list
+ * @line_number: data to enter the list
  * Return: an update linked list
  */
-void add_stack_beg(stack_t **stack, unsigned int n)
+void add_stack_beg(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node;
+	int num;
 
-	new_node = malloc(sizeof(stack_t));
-	if (!new_node)
-		malloc_error();
-	new_node->n = n;
-	if (*stack == NULL)
+	if (mont->arr[1] != NULL)
 	{
-		new_node->prev = NULL;
-		new_node->next = NULL;
+		num = (int) atoi(mont->arr[1]);
+		new_node = malloc(sizeof(stack_t));
+		if (!new_node)
+			malloc_error();
+		new_node->n = num;
+		if (*stack == NULL)
+		{
+			new_node->prev = NULL;
+			new_node->next = NULL;
+		}
+		else
+		{
+			new_node->next = *stack;
+			(*stack)->prev = new_node;
+		}
+		*stack = new_node;
 	}
 	else
-	{
-		new_node->next = *stack;
-		(*stack)->prev = new_node;
-	}
-	*stack = new_node;
+		print_line_number(line_number);
 }
