@@ -59,12 +59,12 @@ void print_add(stack_t **stack, unsigned int line_number)
 
 
 /**
- * _nop - function does nothing
+ * nop - function does nothing
  *
  * @stack: pointer to stacck to print
  * @line_number: number of lines counted
  */
-void _nop(stack_t **stack, unsigned int line_number)
+void nop(stack_t **stack, unsigned int line_number)
 {
 	(void)stack;
 	(void)line_number;
