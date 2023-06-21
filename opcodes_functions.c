@@ -3,12 +3,12 @@
  * print_all - prints all the values on stack from top to the last
  *
  * @stack: pointer to stack to print`
- * @line_count: number of lines counted
+ * @line_number: number of lines counted
  */
-void print_all(stack_t **stack, unsigned int line_count)
+void print_all(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new;
-	(void)line_count;
+	(void)line_number;
 
 	new = *stack;
 
@@ -24,13 +24,13 @@ void print_all(stack_t **stack, unsigned int line_count)
  * print_int - prints top item on the stack
  *
  * @stack: pointer to stack to print
- * @line_count: number of lines counted
+ * @line_number: number of lines counted
  */
-void print_int(stack_t **stack, unsigned int line_count)
+void print_int(stack_t **stack, unsigned int line_number)
 {
 	if (*stack == NULL)
 	{
-		fprintf(stderr, "L %d: can't pint, stack empty\n", line_count);
+		fprintf(stderr, "L %d: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", (*stack)->n);
@@ -40,15 +40,15 @@ void print_int(stack_t **stack, unsigned int line_count)
  * print_add - adds two elements of the stack
  *
  * @stack: pointer to stack to print
- * @line_count: number of lines in the stack
+ * @line_number: number of lines in the stack
  */
-void print_add(stack_t **stack, unsigned int line_count)
+void print_add(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new;
 	if (!*stack || !(*stack)->next)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n",
-			line_count);
+			line_number);
 		exit(EXIT_FAILURE);
 	}
 
@@ -69,10 +69,10 @@ void print_add(stack_t **stack, unsigned int line_count)
  * _nop - function does nothing
  *
  * @stack: pointer to stacck to print
- * @line_count: number of lines counted
+ * @line_number: number of lines counted
  */
-void nop(stack_t **stack, unsigned int line_count)
+void nop(stack_t **stack, unsigned int line_number)
 {
 	(void)stack;
-	(void)line_count;
+	(void)line_number;
 }

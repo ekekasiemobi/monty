@@ -61,10 +61,10 @@ void tokenizer(char *cmd, char ***arr, ssize_t read);
 void (*get_dispatch_func(char *str))(stack_t**, unsigned int);
 void malloc_error(void);
 extern param *mont;
-void print_int(stack_t **stack, unsigned int line_count);
-void print_all(stack_t **stack, unsigned int line_count);
-void nop(stack_t **stack, unsigned int line_cont);
-void print_add(stack_t **stack, unsigned int line_count);
+void print_int(stack_t **stack, unsigned int line_number);
+void print_all(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
+void print_add(stack_t **stack, unsigned int line_number);
 void initialize(void);
 void print_line_number(unsigned int line);
 #endif
