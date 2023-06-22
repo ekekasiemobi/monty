@@ -121,3 +121,23 @@ void rotl(stack_t **stack, unsigned int line_number)
 
 }
 
+
+void pstr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp;
+
+	temp = *stack;
+
+	(void)line_number;
+
+	while (temp)
+	{
+		if (temp->n < 1 || temp->n > 127)
+		{
+			break;
+		}
+		printf("%c", temp->n);
+		temp = temp->next;
+	}
+	printf("\n");
+}
