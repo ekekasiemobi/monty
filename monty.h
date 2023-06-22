@@ -69,6 +69,7 @@ void print_all(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 void print_add(stack_t **stack, unsigned int line_number);
 void div(stack_t **stack, unsigned int line_number);
+void divide(stack_t **stack, unsigned int);
 void print_mod(stack_t **stack, unsigned int line_number);
 void initialize(void);
 void print_line_number(unsigned int line);
