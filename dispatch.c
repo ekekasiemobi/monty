@@ -19,6 +19,7 @@ void (*get_dispatch_func(char *str))(stack_t**, unsigned int)
 		{"sub", sub},
 		{"mod", print_mod},
 		{"mul", mul},
+		{"pchar", pchar},
 		{NULL, NULL}
 	};
 
