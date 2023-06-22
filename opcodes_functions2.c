@@ -43,7 +43,7 @@ void divide(stack_t **stack, unsigned int line_number)
  * @line_number: command number
  */
 void print_mod(stack_t **stack, unsigned int line_number)
-{	
+{
 	int num = 0;
 	stack_t *temp;
 
@@ -75,7 +75,11 @@ void print_mod(stack_t **stack, unsigned int line_number)
 		(*stack)->prev = NULL;
 }
 
-
+/**
+ * pchar - print character
+ * @stack: a stack list
+ * @line_number: opcode line number
+ */
 void pchar(stack_t **stack, unsigned int line_number)
 {
 	stack_t *value;
@@ -98,6 +102,11 @@ void pchar(stack_t **stack, unsigned int line_number)
 }
 
 
+/**
+ * rotl - rotate to bottom
+ * @stack: a stack list
+ * @line_number: opcode line number
+ */
 void rotl(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp;
@@ -123,7 +132,11 @@ void rotl(stack_t **stack, unsigned int line_number)
 
 }
 
-
+/**
+ * pstr - print string
+ * @stack: a stack list
+ * @line_number: opcode line number
+ */
 void pstr(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp;

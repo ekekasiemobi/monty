@@ -1,5 +1,10 @@
 #include "monty.h"
 
+/**
+ * rotr - rotate to top
+ * @stack: a stack list
+ * @line_number: opcode line number
+ */
 void rotr(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp;

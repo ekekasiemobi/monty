@@ -60,7 +60,7 @@ int is_digit(char *c)
 
 /**
  * find_entry - let program discover entry point
- * @stack - a stack node list
+ * @stack: a stack node list
  * @line_number: opcode line number
  */
 void find_entry(stack_t **stack, unsigned int line_number)
