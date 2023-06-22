@@ -10,4 +10,5 @@ void initialize(void)
 	mont->n = 0;
 	mont->line_number = 1;
 	mont->arr = NULL;
+	mont->entry = "stack";
 }
