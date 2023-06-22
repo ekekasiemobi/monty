@@ -16,10 +16,10 @@ int main(int argc, char *argv[])
 	head = NULL;
 	initialize();
 	if (argc != 2)
-		print_error("USAGE: monty", file_name);
+		print_error("USAGE: monty file", NULL);
 	mont->file = fopen(file_name, "r");
 	if (!mont->file)
-		print_error("Error: Can't open", file_name);
+		print_error("Error: Can't open ", file_name);
 	while (fgets(buffer, BUF_SIZE, mont->file) != NULL)
 	{
 		len = strlen(buffer);
@@ -34,12 +34,14 @@ int main(int argc, char *argv[])
 			continue;
 		}
 		tokenizer(buffer, len);
+		if (mont->arr[0] == 0)
+			continue;
 		opcmd = get_dispatch_func(mont->arr[0]);
-		if (opcmd == NULL || mont->n > 2)
+		if (opcmd == NULL)
 			print_line_number(mont->line_number);
 		opcmd(&head, mont->line_number);
-		mont->n = 0;
 		mont->line_number += 1;
+		mont->n = 0;
 		free_array();
 	}
 	free_stack(&head);

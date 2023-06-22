@@ -35,7 +35,6 @@ void add_stack_beg(stack_t **stack, unsigned int line_number)
 		(*stack)->prev = new_node;
 	}
 	*stack = new_node;
-
 }
 /**
  * is_digit - checks if the command is a digit

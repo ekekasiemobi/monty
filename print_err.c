@@ -8,7 +8,7 @@ void print_error(char *message, char *file)
 {
 	if (file == NULL)
 		file = "";
-	fprintf(stderr, "%s %s\n", message, file);
+	fprintf(stderr, "%s%s\n", message, file);
 	exit(EXIT_FAILURE);
 }
 
