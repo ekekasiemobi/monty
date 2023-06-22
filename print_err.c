@@ -9,6 +9,8 @@ void print_error(char *message, char *file)
 	if (file == NULL)
 		file = "";
 	fprintf(stderr, "%s%s\n", message, file);
+	free(mont->entry);
+	free(mont);
 	exit(EXIT_FAILURE);
 }
 
@@ -18,6 +20,8 @@ void print_error(char *message, char *file)
 void malloc_error(void)
 {
 	fprintf(stderr, "Error: malloc failed\n");
+	free(mont->entry);
+	free(mont);
 	exit(EXIT_FAILURE);
 }
 
@@ -28,5 +32,8 @@ void malloc_error(void)
 void print_line_number(unsigned int line)
 {
 	fprintf(stderr, "L%d: unknown instruction %s\n", line, mont->arr[0]);
+	free(mont->entry);
+	free(mont);
+	fclose(mont->file);
 	exit(EXIT_FAILURE);
 }
