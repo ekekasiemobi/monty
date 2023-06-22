@@ -15,9 +15,10 @@ void (*get_dispatch_func(char *str))(stack_t**, unsigned int)
 		{"pop", pop},
 		{"nop", nop},
 		{"swap", swap},
-		{"div", print_div},
+		{"div", div},
 		{"sub", sub},
 		{"mod", print_mod},
+		{"mul", mul},
 		{NULL, NULL}
 	};
 
