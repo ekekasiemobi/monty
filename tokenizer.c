@@ -26,7 +26,7 @@ void tokenizer(char *cmd, ssize_t read)
 		malloc_error();
 	}
 	token = strtok(cmd, delim);
-	for (count = 0; token != NULL; count++)
+	for (count = 0; token != NULL && token[0] != '#'; count++)
 	{
 		mont->arr[count] = malloc(sizeof(char) * (strlen(token) + 1));
 		if (!mont->arr[count])
