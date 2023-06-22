@@ -1,4 +1,16 @@
 #include "monty.h"
+
+/**
+ * pall - prints all the values on stack from top to the last
+ *
+ * @stack: pointer to stack to print`
+ * @line_number: number of lines counted
+ */
+void pall(stack_t **stack, unsigned int line_number)
+{
+	print_all(stack, line_number);	
+}
+
 /**
  * print_all - prints all the values on stack from top to the last
  *
@@ -10,14 +22,14 @@ void print_all(stack_t **stack, unsigned int line_number)
 	stack_t *new;
 	(void)line_number;
 
+	if (!stack || !(*stack))
+		return;
 	new = *stack;
-
 	while (new != NULL)
 	{
 		printf("%d\n", new->n);
 		new = new->next;
 	}
-	free(new);
 }
 
 

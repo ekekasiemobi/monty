@@ -73,4 +73,6 @@ void print_line_number(unsigned int line);
 void free_stack(stack_t **stack);
 void free_array(void);
 int is_digit(char *c);
+void pall(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
 #endif
