@@ -64,7 +64,6 @@ void add_stack_end(stack_t **stack, unsigned int);
 void tokenizer(char *cmd, ssize_t read);
 void (*get_dispatch_func(char *str))(stack_t**, unsigned int);
 void malloc_error(void);
-extern param *mont;
 void pop(stack_t **stack, unsigned int);
 void print_int(stack_t **stack, unsigned int line_number);
 void print_all(stack_t **stack, unsigned int line_number);
@@ -89,4 +88,5 @@ void find_entry(stack_t **stack, unsigned int);
 void add_stack_end(stack_t **stack, unsigned int);
 void push_stack(stack_t **stack, unsigned int);
 void free_everything(stack_t **stack);
+extern param *mont;
 #endif
