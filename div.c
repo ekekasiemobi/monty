@@ -4,7 +4,7 @@
  * @stack: a stack pointer
  * @line_number: a line number
  */
-void div(stack_t **stack, unsigned int line_number)
+void divide(stack_t **stack, unsigned int line_number)
 {
 	int num = 0;
 	stack_t *temp;
