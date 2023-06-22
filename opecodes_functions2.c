@@ -1,30 +1,38 @@
 #include "monty.h"
-
-
-void print_div(stack_t **stack, unsigned int line_number)
+/**
+ * div - sub two values in a stack
+ * @stack: a stack pointer
+ * @line_number: a line number
+ */
+void mul(stack_t **stack, unsigned int line_number)
 {
-	unsigned int length = 0;
-	stack_t *temp = *stack;
+	int num = 0;
+	stack_t *temp;
 
-	while (temp != NULL) 
+	if (!stack || !(*stack) || !(*stack)->next)
 	{
-		length++;
-		temp = temp->next;
-	}
-
-	if (length < 2)
-	{
-		printf("L%d: can't div, stack too short\n", line_number);
+		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
+		free_stack(stack);
+		free_array();
+		fclose(mont->file);
+		free(mont);
 		exit(EXIT_FAILURE);
 	}
+	num = (*stack)->next->n;
 	if ((*stack)->n == 0)
 	{
 		fprintf(stderr, "L%d: division by zero\n", line_number);
+		free_stack(stack);
+		free_array();
+		fclose(mont->file);
+		free(mont);
 		exit(EXIT_FAILURE);
 	}
-
-	temp = *stack;
-	(*stack)->next->n /= (*stack)->n;
-	*stack = (*stack)->next;
-	free(temp);
+	num /= (*stack)->n;
+	(*stack)->next->n = num;
+	temp = (*stack)->next;
+	free(*stack);
+	*stack = temp;
+	if (*stack)
+		(*stack)->prev = NULL;
 }
