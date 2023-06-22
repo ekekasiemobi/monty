@@ -67,7 +67,10 @@ void find_entry(stack_t **stack, unsigned int line_number)
 {
 	(void)stack;
 	(void)line_number;
-	strcpy(mont->entry, mont->arr[0]);
+	if (strcmp(mont->arr[0], "queue") == 0)
+		mont->entry = 1;
+	else
+		mont->entry = 0;
 }
 
 /**

@@ -55,6 +55,5 @@ void free_everything(stack_t **stack)
 {
 	free_stack(stack);
 	fclose(mont->file);
-	free(mont->entry);
 	free(mont);
 }

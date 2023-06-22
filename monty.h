@@ -56,7 +56,7 @@ typedef struct mont_param
 	char **arr;
 	int n;
 	FILE *file;
-	char *entry;
+	int entry;
 } param;
 void print_error(char *message, char *file);
 void add_stack_beg(stack_t **stack, unsigned int);
