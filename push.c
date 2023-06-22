@@ -6,7 +6,9 @@
  */
 void push_stack(stack_t **stack, unsigned int line_number)
 {
-	if (strcmp(mont->entry, "queue") == 0)
+	if (mont->entry == NULL)
+		add_stack_beg(stack, line_number);
+	else if (strcmp(mont->entry, "queue") == 0)
 		add_stack_end(stack, line_number);
 	else
 		add_stack_beg(stack, line_number);

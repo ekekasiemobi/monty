@@ -25,5 +25,6 @@ void (*get_dispatch_func(char *str))(stack_t**, unsigned int)
 			return (func[i].f);
 		i++;
 	}
+	print_line_number(mont->line_number);
 	return (NULL);
 }

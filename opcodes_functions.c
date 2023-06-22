@@ -59,6 +59,7 @@ void print_int(stack_t **stack, unsigned int line_number)
 void print_add(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp;
+	int num = 0;
 
 	if (!*stack || !(*stack)->next)
 	{
@@ -67,10 +68,14 @@ void print_add(stack_t **stack, unsigned int line_number)
 		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
-	temp = (*stack)->next;
-	(*stack)->next->n += (*stack)->n;
-	free(*stack);
-	*stack = temp;
+	num = (*stack)->next->n;
+        num += (*stack)->n;
+        (*stack)->next->n = num;
+        temp = (*stack)->next;
+        free(*stack);
+        *stack = temp;
+        if (*stack)
+                (*stack)->prev = NULL;
 }
 
 

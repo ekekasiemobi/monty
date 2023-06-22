@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * div - sub two values in a stack
+ * divide - divide two values in a stack
  * @stack: a stack pointer
  * @line_number: a line number
  */

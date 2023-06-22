@@ -34,18 +34,26 @@ int main(int argc, char *argv[])
 			continue;
 		}
 		tokenizer(buffer, len);
-		if (mont->arr[0] == 0)
+		if (mont->arr[0] == 0 || strchr(mont->arr[0], '#'))
 			continue;
 		opcmd = get_dispatch_func(mont->arr[0]);
-		if (opcmd == NULL)
-			print_line_number(mont->line_number);
 		opcmd(&head, mont->line_number);
 		mont->line_number += 1;
 		mont->n = 0;
 		free_array();
 	}
-	free_stack(&head);
+	free_everything(&head);
+	return (0);
+}
+
+
+/**
+ * free_everything - free all memory after usage
+ * @stack: a stack list
+ */
+void free_everything(stack_t **stack)
+{
+	free_stack(stack);
 	fclose(mont->file);
 	free(mont);
-	return (0);
 }

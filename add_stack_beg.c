@@ -65,9 +65,13 @@ int is_digit(char *c)
  */
 void find_entry(stack_t **stack, unsigned int line_number)
 {
+	int len;
+
 	(void)stack;
 	(void)line_number;
-	mont->entry = mont->arr[0];
+	len = strlen(mont->arr[0]);
+	mont->entry = malloc(sizeof(char) * len + 1);
+	strcpy(mont->entry, mont->arr[0]);
 }
 
 /**

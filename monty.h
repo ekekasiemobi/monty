@@ -48,6 +48,7 @@ typedef struct instruction_s
  * @arr: array of words
  * @n: integer to pass to instruction
  * @file: the file read
+ * @entry: specify entry either stack or queue
  */
 typedef struct mont_param
 {
@@ -71,7 +72,7 @@ void nop(stack_t **stack, unsigned int line_number);
 void print_add(stack_t **stack, unsigned int line_number);
 void divide(stack_t **stack, unsigned int);
 void print_mod(stack_t **stack, unsigned int line_number);
-void pchar(stack_t **stack, unsigned int line_number); 
+void pchar(stack_t **stack, unsigned int line_number);
 void rotl(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
 void rotr(stack_t **stack, unsigned int line_number);
@@ -87,4 +88,5 @@ void mul(stack_t **stack, unsigned int);
 void find_entry(stack_t **stack, unsigned int);
 void add_stack_end(stack_t **stack, unsigned int);
 void push_stack(stack_t **stack, unsigned int);
+void free_everything(stack_t **stack);
 #endif
