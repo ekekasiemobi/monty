@@ -10,26 +10,7 @@ void add_stack_beg(stack_t **stack, unsigned int line_number)
 	stack_t *new_node;
 	int num;
 
-	if (mont->arr[1] != NULL && is_digit(mont->arr[1]) != 1)
-	{
-		num = (int) atoi(mont->arr[1]);
-		new_node = malloc(sizeof(stack_t));
-		if (!new_node)
-			malloc_error();
-		new_node->n = num;
-		if (*stack == NULL)
-		{
-			new_node->prev = NULL;
-			new_node->next = NULL;
-		}
-		else
-		{
-			new_node->next = *stack;
-			(*stack)->prev = new_node;
-		}
-		*stack = new_node;
-	}
-	else
+	if (mont->arr[1] == NULL || !is_digit(mont->arr[1]))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		free_stack(stack);
@@ -38,6 +19,23 @@ void add_stack_beg(stack_t **stack, unsigned int line_number)
 		free(mont);
 		exit(EXIT_FAILURE);
 	}
+	num = (int) atoi(mont->arr[1]);
+	new_node = malloc(sizeof(stack_t));
+	if (!new_node)
+		malloc_error();
+	new_node->n = num;
+	if (*stack == NULL)
+	{
+		new_node->prev = NULL;
+		new_node->next = NULL;
+	}
+	else
+	{
+		new_node->next = *stack;
+		(*stack)->prev = new_node;
+	}
+	*stack = new_node;
+
 }
 /**
  * is_digit - checks if the command is a digit
@@ -49,9 +47,12 @@ int is_digit(char *c)
 {
 	int i = 0;
 
+	if (c[0] == '-')
+		i = 1;
+
 	while (c[i] != '\0')
 	{
-		if (c[i] >= '0' && c[i] <= '9')
+		if (!isdigit(c[i]))
 			return (0);
 		i++;
 	}

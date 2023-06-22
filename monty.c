@@ -5,6 +5,7 @@
  * @argv: argument vector
  * Return: an integer value 1 onerror otherwise 0;
  */
+param *mont;
 int main(int argc, char *argv[])
 {
 	stack_t *head;
