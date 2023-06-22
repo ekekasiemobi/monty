@@ -2,7 +2,6 @@
 /**
  * initialize - initialize parameters of param structure
  */
-param *mont;
 void initialize(void)
 {
 	mont = malloc(sizeof(param));
@@ -11,4 +10,5 @@ void initialize(void)
 	mont->n = 0;
 	mont->line_number = 1;
 	mont->arr = NULL;
+	mont->entry = NULL;
 }

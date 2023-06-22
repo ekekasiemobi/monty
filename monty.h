@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #include <stdarg.h>
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -46,13 +47,16 @@ typedef struct instruction_s
  * @line_number: opcode line argument
  * @arr: array of words
  * @n: integer to pass to instruction
+ * @file: the file read
+ * @entry: specify entry either stack or queue
  */
 typedef struct mont_param
 {
 	unsigned int line_number;
 	char **arr;
 	int n;
-	instruction_t *instruct;
+	FILE *file;
+	char *entry;
 } param;
 void print_error(char *message, char *file);
 void add_stack_beg(stack_t **stack, unsigned int);
@@ -66,8 +70,23 @@ void print_int(stack_t **stack, unsigned int line_number);
 void print_all(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 void print_add(stack_t **stack, unsigned int line_number);
+void divide(stack_t **stack, unsigned int);
+void print_mod(stack_t **stack, unsigned int line_number);
+void pchar(stack_t **stack, unsigned int line_number);
+void rotl(stack_t **stack, unsigned int line_number);
+void pstr(stack_t **stack, unsigned int line_number);
+void rotr(stack_t **stack, unsigned int line_number);
 void initialize(void);
 void print_line_number(unsigned int line);
 void free_stack(stack_t **stack);
 void free_array(void);
+int is_digit(char *c);
+void pall(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
+void sub(stack_t **stack, unsigned int);
+void mul(stack_t **stack, unsigned int);
+void find_entry(stack_t **stack, unsigned int);
+void add_stack_end(stack_t **stack, unsigned int);
+void push_stack(stack_t **stack, unsigned int);
+void free_everything(stack_t **stack);
 #endif

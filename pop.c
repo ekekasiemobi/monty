@@ -2,7 +2,7 @@
 /**
  * pop - a function that delete on a stack
  * @stack: a struct node pointer
- * @line: line number
+ * @line: number of lines counted
  */
 void pop(stack_t **stack, unsigned int line)
 {
@@ -10,13 +10,13 @@ void pop(stack_t **stack, unsigned int line)
 
 	if (stack == NULL || *stack == NULL)
 	{
-		fprintf(stderr, "L %d: can't pop an empty stack\n", line);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line);
 		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
 	next_val = (*stack)->next;
-	if (next_val->prev != NULL)
-		next_val->prev = NULL;
 	free(*stack);
 	*stack = next_val;
+	if (*stack)
+		(*stack)->prev = NULL;
 }

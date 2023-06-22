@@ -6,7 +6,7 @@
  */
 void tokenizer(char *cmd, ssize_t read)
 {
-	char *copy_cmd, *delim = " $\t\n", *token;
+	char *copy_cmd, *delim = " \t\n", *token;
 	int count = 0, i;
 
 	copy_cmd = malloc(sizeof(char) * read + 1);
