@@ -30,6 +30,4 @@ void malloc_error(void)
 void print_line_number(unsigned int line)
 {
 	fprintf(stderr, "L%d: unknown instruction %s\n", line, mont->arr[0]);
-	free(mont);
-	exit(EXIT_FAILURE);
 }

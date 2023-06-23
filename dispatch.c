@@ -25,10 +25,5 @@ void (*get_dispatch_func(char *str))(stack_t**, unsigned int)
 			return (func[i].f);
 		i++;
 	}
-	if (func[i].opcode == NULL && str)
-	{
-		if (func[i].opcode[0] != '#')
-			print_line_number(mont->line_number);
-	}
 	return (NULL);
 }

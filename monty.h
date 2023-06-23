@@ -57,6 +57,8 @@ typedef struct mont_param
 	int n;
 	FILE *file;
 	int entry;
+	int read_len;
+	char buffer[BUF_SIZE];
 } param;
 void print_error(char *message, char *file);
 void add_stack_beg(stack_t **stack, unsigned int);
@@ -88,5 +90,7 @@ void find_entry(stack_t **stack, unsigned int);
 void add_stack_end(stack_t **stack, unsigned int);
 void push_stack(stack_t **stack, unsigned int);
 void free_everything(stack_t **stack);
+void read_file(char *file_name);
+void remove_newline(void);
 extern param *mont;
 #endif
