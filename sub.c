@@ -7,7 +7,6 @@
 void sub(stack_t **stack, unsigned int line_number)
 {
 	int num = 0;
-	stack_t *temp;
 
 	if (!stack || !(*stack) || !(*stack)->next)
 	{

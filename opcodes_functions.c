@@ -57,7 +57,6 @@ void print_int(stack_t **stack, unsigned int line_number)
 
 void print_add(stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp;
 	int num = 0;
 
 	if (!*stack || !(*stack)->next)
