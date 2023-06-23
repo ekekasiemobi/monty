@@ -1,4 +1,5 @@
 #include "monty.h"
+
 /**
  * print_error - Print error message to stderr
  * @message: error message
@@ -19,6 +20,7 @@ void print_error(char *message, char *file)
 void malloc_error(void)
 {
 	fprintf(stderr, "Error: malloc failed\n");
+	fclose(mont->file);
 	free(mont);
 	exit(EXIT_FAILURE);
 }
@@ -31,3 +33,4 @@ void print_line_number(unsigned int line)
 {
 	fprintf(stderr, "L%d: unknown instruction %s\n", line, mont->arr[0]);
 }
+
