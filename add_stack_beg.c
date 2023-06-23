@@ -12,7 +12,7 @@ void add_stack_beg(stack_t **stack, unsigned int line_number)
 
 	if (mont->arr[1] == NULL || !is_digit(mont->arr[1]))
 	{
-		fprintf(stderr, "L%d:usage: push integer\n", line_number);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		free_stack(stack);
 		free_array();
 		fclose(mont->file);
@@ -85,7 +85,7 @@ void add_stack_end(stack_t **stack, unsigned int line_number)
 
 	if (mont->arr[1] == NULL || !is_digit(mont->arr[1]))
 	{
-		fprintf(stderr, "L%d:usage: push integer\n", line_number);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		free_stack(stack);
 		free_array();
 		fclose(mont->file);
