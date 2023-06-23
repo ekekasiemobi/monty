@@ -68,7 +68,7 @@ void read_file(char *file_name)
 {
 	mont->file = fopen(file_name, "r");
 	if (!mont->file)
-		print_error("Error: Can't open ", file_name);
+		print_error("Error: Can't open file ", file_name);
 }
 
 /**
