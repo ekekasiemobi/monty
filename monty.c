@@ -73,11 +73,8 @@ void read_file(char *file_name)
 
 /**
  * remove_newline - replace all newline with null terminator
- * @buffer: an array of read content
- * @len: len of buffer
- * Return: an integer value
  */
-void remove_newline()
+void remove_newline(void)
 {
 	int len;
 
