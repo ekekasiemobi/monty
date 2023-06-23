@@ -20,13 +20,14 @@ int main(int argc, char *argv[])
 	while (fgets(mont->buffer, BUF_SIZE, mont->file) != NULL)
 	{
 		remove_newline();
+		printf("%d\n", mont->read_len);
 		if (mont->read_len == 0)
 		{
 			mont->line_number += 1;
 			continue;
 		}
 		tokenizer(mont->buffer, mont->read_len);
-		if (mont->arr[0] == 0)
+		if (mont->arr[0] == 0 || strchr(mont->arr[0], '#') != NULL)
 		{
 			mont->line_number += 1;
 			continue;
