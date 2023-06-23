@@ -2,13 +2,12 @@
 
 /**
  * pall - prints all the values on stack from top to the last
- *
  * @stack: pointer to stack to print`
  * @line_number: number of lines counted
  */
 void pall(stack_t **stack, unsigned int line_number)
 {
-	print_all(stack, line_number);	
+	print_all(stack, line_number);
 }
 
 /**
@@ -69,13 +68,9 @@ void print_add(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	num = (*stack)->next->n;
-        num += (*stack)->n;
-        (*stack)->next->n = num;
-        temp = (*stack)->next;
-        free(*stack);
-        *stack = temp;
-        if (*stack)
-                (*stack)->prev = NULL;
+	num += (*stack)->n;
+	(*stack)->next->n = num;
+	pop(stack, line_number);
 }
 
 

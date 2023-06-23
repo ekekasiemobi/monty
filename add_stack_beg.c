@@ -60,18 +60,17 @@ int is_digit(char *c)
 
 /**
  * find_entry - let program discover entry point
- * @stack - a stack node list
+ * @stack: a stack node list
  * @line_number: opcode line number
  */
 void find_entry(stack_t **stack, unsigned int line_number)
 {
-	int len;
-
 	(void)stack;
 	(void)line_number;
-	len = strlen(mont->arr[0]);
-	mont->entry = malloc(sizeof(char) * len + 1);
-	strcpy(mont->entry, mont->arr[0]);
+	if (strcmp(mont->arr[0], "queue") == 0)
+		mont->entry = 1;
+	else
+		mont->entry = 0;
 }
 
 /**
@@ -86,7 +85,7 @@ void add_stack_end(stack_t **stack, unsigned int line_number)
 
 	if (mont->arr[1] == NULL || !is_digit(mont->arr[1]))
 	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		free_stack(stack);
 		free_array();
 		fclose(mont->file);

@@ -10,5 +10,6 @@ void initialize(void)
 	mont->n = 0;
 	mont->line_number = 1;
 	mont->arr = NULL;
-	mont->entry = NULL;
+	mont->entry = 0;
+	mont->read_len = 0;
 }

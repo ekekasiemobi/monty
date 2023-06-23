@@ -21,9 +21,5 @@ void mul(stack_t **stack, unsigned int line_number)
 	num = (*stack)->next->n;
 	num *= (*stack)->n;
 	(*stack)->next->n = num;
-	temp = (*stack)->next;
-	free(*stack);
-	*stack = temp;
-	if (*stack)
-		(*stack)->prev = NULL;
+	pop(stack, line_number);
 }

@@ -49,6 +49,8 @@ typedef struct instruction_s
  * @n: integer to pass to instruction
  * @file: the file read
  * @entry: specify entry either stack or queue
+ * @read_len: read number of length
+ * @buffer: read store
  */
 typedef struct mont_param
 {
@@ -56,7 +58,9 @@ typedef struct mont_param
 	char **arr;
 	int n;
 	FILE *file;
-	char *entry;
+	int entry;
+	int read_len;
+	char buffer[BUF_SIZE];
 } param;
 void print_error(char *message, char *file);
 void add_stack_beg(stack_t **stack, unsigned int);
@@ -64,7 +68,6 @@ void add_stack_end(stack_t **stack, unsigned int);
 void tokenizer(char *cmd, ssize_t read);
 void (*get_dispatch_func(char *str))(stack_t**, unsigned int);
 void malloc_error(void);
-extern param *mont;
 void pop(stack_t **stack, unsigned int);
 void print_int(stack_t **stack, unsigned int line_number);
 void print_all(stack_t **stack, unsigned int line_number);
@@ -89,4 +92,7 @@ void find_entry(stack_t **stack, unsigned int);
 void add_stack_end(stack_t **stack, unsigned int);
 void push_stack(stack_t **stack, unsigned int);
 void free_everything(stack_t **stack);
+void read_file(char *file_name);
+void remove_newline(void);
+extern param *mont;
 #endif
