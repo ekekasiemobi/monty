@@ -29,6 +29,7 @@ int main(int argc, char *argv[])
 		if (mont->arr[0] == 0 || mont->arr[0][0] == '#')
 		{
 			mont->line_number += 1;
+			free_array();
 			continue;
 		}
 		opcmd = get_dispatch_func(mont->arr[0]);
