@@ -49,6 +49,8 @@ typedef struct instruction_s
  * @n: integer to pass to instruction
  * @file: the file read
  * @entry: specify entry either stack or queue
+ * @read_len: read number of length
+ * @buffer: read store
  */
 typedef struct mont_param
 {

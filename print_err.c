@@ -20,7 +20,6 @@ void print_error(char *message, char *file)
 void malloc_error(void)
 {
 	fprintf(stderr, "Error: malloc failed\n");
-	fclose(mont->file);
 	free(mont);
 	exit(EXIT_FAILURE);
 }
